@@ -247,4 +247,21 @@ class Model_basic extends CI_Model {
     $this->db->insert('gambar', $data);
   }
 
+//   tempat
+  public function getKodeLokasi(){
+	return $this->db->select('kode_lokasi')->from('tbl_barang')->group_by('kode_lokasi')->get()->result();
+  }
+
+  public function pencariankodelokasi($kodelokasi){
+	return $this->db->get_where('tbl_barang', ['kode_lokasi'=> $kodelokasi]);
+  }
+  
+// //   kode jenis
+//   public function getKodeJenis(){
+// 	return $this->db->select('kode_jenis')->from('tbl_barang')->group_by('kode_jenis')->get()->result();
+//   }
+
+//   public function pencariankodejenis($kodejenis){
+// 	return $this->db->get_where('tbl_barang', ['kode_jenis'=> $kodejenis]);
+//   }
 }

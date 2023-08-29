@@ -40,7 +40,7 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
-              <strong>PEMINJAMAN SARPRAS</strong>
+              <strong>INVENTARIS SEKOLAH</strong>
             </h1>
             <hr>
           </div>

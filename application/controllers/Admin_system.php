@@ -169,10 +169,52 @@ class Admin_system extends PX_Controller {
 		}
   }
 
+
+
 	function barang(){
 		$this->check_login_petugas();
 		$data['userdata'] = $this->session_petugas;
-		$data['data'] = $this->model_basic->select_all('tbl_barang');
+		// $data['data'] = $this->model_basic->select_all('tbl_barang');
+		$data['datakodelokasi'] = $this->model_basic->getkodelokasi();
+		// $data['datakodejenis'] = $this->model_basic->getKodeJenis();
+		// $data['datakodelokasi'] = $this->model_basic->getKodeLokasi();
+
+
+		// $tempat=$this->input->get('tempat');
+		// if($tempat){
+		// 	$data['data'] = $this->model_basic->pencariantempat($tempat)->result();
+		// }else{
+		// 	$data['data'] = $this->model_basic->select_all('tbl_barang');
+		// }
+		$kodelokasi=$this->input->get('kode_lokasi');
+		// $kodejenis=$this->input->get('kode_jenis');
+		// $kodelokasi=$this->input->get('kode_lokasi');
+
+		if($kodelokasi){
+			$data['data'] = $this->model_basic->pencariankodelokasi($kodelokasi)->result();
+			// $data['data'] = $this->model_basic->pencariankodejenis($kodejenis)->result();
+			$data['url_print'] = base_url('admin_system/barang_print?kode_lokasi=' . $kodelokasi);
+		}else{
+			$data['data'] = $this->model_basic->select_all('tbl_barang');
+			$data['url_print'] = base_url('admin_system/barang_print');
+		}
+
+		// if($kodejenis){
+		// 	$data['data'] = $this->model_basic->pencariankodejenis($kodejenis)->result();
+		// 	$data['url_print'] = base_url('admin_system/barang_print?kode_jenis=' . $kodejenis);
+		// }else{
+		// 	$data['data'] = $this->model_basic->select_all('tbl_barang');
+		// 	$data['url_print'] = base_url('admin_system/barang_print');
+		// }
+
+		// if($kodelokasi){
+		// 	$data['data'] = $this->model_basic->pencariankodelokasi($kodelokasi)->result();
+		// 	$data['url_print'] = base_url('admin_system/barang_print?kode_lokasi=' . $kodelokasi);
+		// }else{
+		// 	$data['data'] = $this->model_basic->select_all('tbl_barang');
+		// 	$data['url_print'] = base_url('admin_system/barang_print');
+		// }
+
 		$data['content'] = $this->load->view('backend/admin_system/barang',$data,true);
 		$this->load->view('backend/index',$data);
 	}
@@ -351,7 +393,37 @@ class Admin_system extends PX_Controller {
 	}
 
 	function barang_print(){
-		$data['data'] = $this->model_basic->select_all('tbl_barang');
+		
+		$kodelokasi=$this->input->get('kode_lokasi');
+		if($kodelokasi){
+			$data['data'] = $this->model_basic->pencariankodelokasi($kodelokasi)->result();
+			// $data['url_print'] = base_url('admin_system/barang_print?tempat=' . $tempat);
+		}else{
+			$data['data'] = $this->model_basic->select_all('tbl_barang');
+			// $data['url_print'] = base_url('admin_system/barang_print');
+		}
+
+		// $kodejenis=$this->input->get('kode_jenis');
+		// if($kodejenis){
+		// 	$data['data'] = $this->model_basic->pencariankodejenis($kodejenis)->result();
+		// }else{
+		// 	$data['data'] = $this->model_basic->select_all('tbl_barang');
+		// }
+
+		// $kodelokasi=$this->input->get('kode_lokasi');
+		// if($kodelokasi){
+		// 	$data['data'] = $this->model_basic->pencariankodelokasi($kodelokasi)->result();
+		// }else{
+		// 	$data['data'] = $this->model_basic->select_all('tbl_barang');
+		// }
+
 		$this->load->view('backend/admin_system/barang_print', $data);
 	}
-}
+		// if($tempat){
+			// $data['url_print'] = base_url('blablabla?tempat=' . $tempat);
+		// }else{
+			// $data['url_print'] = base_url('blablabla');
+		// }
+			// $data['data'] = $this->model_basic->select_all('tbl_barang');
+
+} 

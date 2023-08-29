@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jun 2023 pada 09.04
+-- Waktu pembuatan: 29 Agu 2023 pada 05.51
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -29,8 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_barang` (
   `id_barang` int(10) NOT NULL,
+  `kode_jenis` varchar(200) NOT NULL,
   `name` varchar(50) NOT NULL,
   `desc` text NOT NULL,
+  `kode_lokasi` varchar(200) NOT NULL,
+  `tempat` varchar(100) NOT NULL,
   `kondisi` varchar(20) NOT NULL,
   `stock` int(10) NOT NULL,
   `status` enum('tampilkan','sembunyikan','','') NOT NULL
@@ -40,8 +43,8 @@ CREATE TABLE `tbl_barang` (
 -- Dumping data untuk tabel `tbl_barang`
 --
 
-INSERT INTO `tbl_barang` (`id_barang`, `name`, `desc`, `kondisi`, `stock`, `status`) VALUES
-(1, 'Bola Voli', 'ini bola voli', 'baik', 20, 'tampilkan');
+INSERT INTO `tbl_barang` (`id_barang`, `kode_jenis`, `name`, `desc`, `kode_lokasi`, `tempat`, `kondisi`, `stock`, `status`) VALUES
+(26, 'B.01', 'Meja Siswa', '-', 'A.2', 'XI TBSM 2', 'Baik', 1, 'sembunyikan');
 
 -- --------------------------------------------------------
 
@@ -87,7 +90,8 @@ CREATE TABLE `tbl_petugas` (
 --
 
 INSERT INTO `tbl_petugas` (`id_petugas`, `username`, `password`, `name`, `email`, `telepon`) VALUES
-(12, 'elsadessi', 'XWgAZAVyVDEDZgA0BXpfI1Fv', 'Elsa Dessi', 'panggilels@gmail.com', '08995309700');
+(12, 'elsadessi', 'XWgAZAVyVDEDZgA0BXpfI1Fv', 'Elsa Dessi', 'panggilels@gmail.com', '08995309700'),
+(13, 'admin', 'UGFeMgduB2oLZA==', 'Admin SMK Kesuma', 'smkkesuma@gmail.com', '081127012222');
 
 -- --------------------------------------------------------
 
@@ -114,8 +118,7 @@ INSERT INTO `tbl_pinjam` (`id_pinjam`, `id_peminjam`, `id_barang`, `jml`, `tgl_p
 (45, 38, 2, 3, '2018-11-02 21:33:02', '0000-00-00 00:00:00', '0'),
 (46, 38, 3, 5, '2018-11-02 23:32:16', '0000-00-00 00:00:00', '0'),
 (47, 30, 1, 5, '2018-11-02 23:42:06', '0000-00-00 00:00:00', '0'),
-(51, 40, 1, 5, '2023-01-06 11:54:39', '0000-00-00 00:00:00', '1'),
-(64, 1, 1, 1, '2023-06-12 13:24:06', '2023-06-12 13:24:54', '2');
+(51, 40, 1, 5, '2023-01-06 11:54:39', '0000-00-00 00:00:00', '1');
 
 -- --------------------------------------------------------
 
@@ -138,7 +141,8 @@ CREATE TABLE `tbl_riwayat` (
 --
 
 INSERT INTO `tbl_riwayat` (`id_pinjam`, `id_peminjam`, `id_barang`, `jml`, `tgl_pinjam`, `tgl_kembali`, `status`) VALUES
-(63, 1, 1, 1, '2023-06-12 08:33:41', '2023-06-12 09:12:19', '1');
+(64, 1, 1, 1, '2023-06-12 13:24:06', '2023-06-12 13:24:54', '1'),
+(66, 1, 19, 5, '2023-06-21 07:29:59', '2023-06-21 07:30:26', '1');
 
 --
 -- Indexes for dumped tables
@@ -176,7 +180,7 @@ ALTER TABLE `tbl_pinjam`
 -- AUTO_INCREMENT untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
-  MODIFY `id_barang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_barang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_peminjam`
@@ -188,13 +192,13 @@ ALTER TABLE `tbl_peminjam`
 -- AUTO_INCREMENT untuk tabel `tbl_petugas`
 --
 ALTER TABLE `tbl_petugas`
-  MODIFY `id_petugas` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_petugas` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pinjam`
 --
 ALTER TABLE `tbl_pinjam`
-  MODIFY `id_pinjam` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id_pinjam` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

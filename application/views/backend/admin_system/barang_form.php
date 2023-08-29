@@ -25,27 +25,45 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-4 col-xs-12 control-label">Nama</label>
+					<label class="col-md-4 col-xs-12 control-label">Kode Jenis</label>
 					<div class="col-md-2 col-xs-12">
-						<input type="text" name="name" class="form-control" value="<?php if($data!=null) echo $data->name; ?>">
+						<input type="text" name="kode_jenis" class="form-control" placeholder="Kode Jenis"  value="<?php if($data!=null) echo $data->kode_jenis; ?>" >
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 col-xs-12 control-label">Nama Barang</label>
+					<div class="col-md-2 col-xs-12">
+						<input type="text" name="name" class="form-control" placeholder="Nama"  value="<?php if($data!=null) echo $data->name; ?>" >
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-4 col-xs-12 control-label">Deskripsi</label>
-					<div class="col-md-5 col-xs-12">
-						<input type="text" name="desc" class="form-control" value="<?php if($data!=null) echo $data->desc; ?>">
+					<div class="col-md-6 col-xs-12">
+						<input type="text" name="desc" class="form-control" placeholder="Detail, seperti:tanggal masuk,kegunaan,dll."  value="<?php if($data!=null) echo $data->desc; ?>">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 col-xs-12 control-label">Kode Lokasi</label>
+					<div class="col-md-2 col-xs-12">
+						<input type="text" name="kode_lokasi" class="form-control" placeholder="Kode Lokasi"  value="<?php if($data!=null) echo $data->kode_lokasi; ?>" >
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 col-xs-12 control-label">Lokasi</label>
+					<div class="col-md-2 col-xs-12">
+						<input type="text" name="tempat" class="form-control" placeholder="Tempat"  value="<?php if($data!=null) echo $data->tempat; ?>">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-4 col-xs-12 control-label">Kondisi</label>
 					<div class="col-md-2 col-xs-12">
-						<input type="text" name="kondisi" class="form-control" value="<?php if($data!=null) echo $data->kondisi; ?>">
+						<input type="text" name="kondisi" class="form-control" placeholder="Kondisi"  value="<?php if($data!=null) echo $data->kondisi; ?>">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-4 col-xs-12 control-label">Stock</label>
 					<div class="col-md-2 col-xs-12">
-						<input type="number" name="stock" class="form-control" value="<?php if($data!=null) echo $data->stock; ?>">
+						<input type="number" name="stock" class="form-control" placeholder="Jumlah" value="<?php if($data!=null) echo $data->stock; ?>">
 					</div>
 				</div>
 				<div class="form-group">

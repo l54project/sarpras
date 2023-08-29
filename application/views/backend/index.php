@@ -154,7 +154,7 @@
                             </ul>
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-archive fa-fw"></i> Data Barang<span class="fa arrow"></span></a></a>
+                          <a href="#"><i class="fa fa-archive fa-fw"></i> Data Inventaris<span class="fa arrow"></span></a></a>
                             <ul class="nav nav-second-level">
                               <li>
                                 <a href="<?php echo base_url('admin_system/barang') ?>"><i class="fa fa-eye fa-fw"></i> Lihat Data Barang</a>
